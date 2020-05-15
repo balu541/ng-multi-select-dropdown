@@ -1,0 +1,15 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <div>
+        <ng-multiselect-dropdown
+        [placeholder]="'custom placeholder'"
+        [settings]="dropdownSettings"
+        [data]="dropdownList"
+        formControlName="selectedItems"
+        (onSelect)="onItemSelect($event)"
+        (onSelectAll)="onSelectAll($event)"
+        >
+        </ng-multiselect-dropdown>
+    </div>
+    <button type="submit">Submit</button>
+</form>
+<!-- [(ngModel)]="selectedItems" -->
