@@ -1,15 +1,19 @@
-<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-    <div>
-        <ng-multiselect-dropdown
-        [placeholder]="'custom placeholder'"
-        [settings]="dropdownSettings"
-        [data]="dropdownList"
-        formControlName="selectedItems"
-        (onSelect)="onItemSelect($event)"
-        (onSelectAll)="onSelectAll($event)"
-        >
-        </ng-multiselect-dropdown>
-    </div>
-    <button type="submit">Submit</button>
-</form>
-<!-- [(ngModel)]="selectedItems" -->
+<app-sample [all]="getTotalEmployeesCount()" [male]="getTotalMaleEmployeesCount()" [female]="getTotalFemaleEmployeesCount()"
+  (countRadioButtonSelectionChanged)="onemployeeCountRadioButtonChnage($event)"
+  >
+</app-sample>
+<div *ngFor="let item of employees">
+<ng-container  *ngIf="selectedEmployeeCountRadioButton=='all' || selectedEmployeeCountRadioButton==item.gender">
+  
+    <table>
+      <tr>
+        <td>{{item.name}}</td>
+        <td>{{item.field}}</td>
+        <td>{{item.salary}}</td>
+        <td>{{item.gender}}</td>
+      </tr>
+    </table>
+  </ng-container>
+  </div>
+
+<router-outlet></router-outlet>

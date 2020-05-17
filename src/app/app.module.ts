@@ -15,11 +15,13 @@ import {MatInputModule} from '@angular/material/input';
 import { CommonModule } from '@angular/common';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import {MatButtonModule} from '@angular/material/button';
-import { FormsModule }   from '@angular/forms'
+import { FormsModule }   from '@angular/forms';
+import { SampleComponent } from './sample/sample.component'
 
 @NgModule({
   declarations: [
     AppComponent,
+    SampleComponent,
   
     
   ],

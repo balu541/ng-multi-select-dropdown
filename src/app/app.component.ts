@@ -12,43 +12,29 @@ import { IDropdownSettings } from '../../node_modules/ng-multiselect-dropdown/';
 })
 
 export class AppComponent {
-    dropdownList = [];
-    selectedItems = [];
-    dropdownSettings: IDropdownSettings;
-    constructor(private fb: FormBuilder) { }
-    profileForm = this.fb.group({
-        selectedItems: ['', Validators.required],
-    })
-    ngOnInit() {
-      this.dropdownList = [
-        { item_id: 1, item_text: 'Mumbai' },
-        { item_id: 2, item_text: 'Bangaluru' },
-        { item_id: 3, item_text: 'Pune' },
-        { item_id: 4, item_text: 'Navsari' },
-        { item_id: 5, item_text: 'New Delhi' }
-      ];
-      this.selectedItems = [
-        { item_id: 3, item_text: 'Pune' },
-        { item_id: 4, item_text: 'Navsari' }
-      ];
-      this.dropdownSettings = {
-        singleSelection: false,
-        idField: 'item_id',
-        textField: 'item_text',
-        selectAllText: 'Select All',
-        unSelectAllText: 'UnSelect All',
-        itemsShowLimit: 3,
-        allowSearchFilter: true
-      };
-    }
-    onItemSelect(item: any) {
-      console.log(item);
-    }
-    onSelectAll(items: any) {
-      console.log(items);
-    }
-    onSubmit() {
-        console.log(this.profileForm.value);
-    }
+  employees:any[];
+  selectedEmployeeCountRadioButton: string='all';
+  constructor(){
+    this.employees=[
+      {name:'balu', field: 'IT', salary:'25k', gender:'male'},
+      {name:'Ajay', field: 'Civil', salary:'14k',gender:'male'},
+      {name:'pardhu', field: 'IT', salary:'1L',gender:'male'},
+      {name:'supragna', field:'IT', salary:'25k',gender:'female'},
+      {name:'nikitha', field:'IT', salary:'20k',gender:'female'},
+      {name:'nikitha', field:'IT', salary:'20k',gender:'female'}
+    ];
+  }
+  onemployeeCountRadioButtonChnage(selectedRadioButtonValue:string):void{
+    this.selectedEmployeeCountRadioButton=selectedRadioButtonValue;
+  }
+  getTotalEmployeesCount():number{
+    return this.employees.length;
+  }
+  getTotalMaleEmployeesCount():number{
+    return this.employees.filter(e=>e.gender==='male').length;
+  }
+  getTotalFemaleEmployeesCount():number{
+    return this.employees.filter(e=>e.gender==='female').length;
+  }
 }
 
