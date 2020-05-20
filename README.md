@@ -1,5 +1,5 @@
-# ng-multi-select-dropdown REFER 1St Commit 
+# ng-multi-select-dropdown Refer 1st Commit 
 Multi Select Drop Down using IDropDownSettings
 
 
-Refer 1st Commit 
+
